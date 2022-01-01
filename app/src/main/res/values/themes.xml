@@ -1,0 +1,70 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.NewStart" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item>
+<!--        <item name="android:padding">10dp</item>-->
+<!--        <item name="android:layout_margin">20dp</item>-->
+<!--        <item name="android:gravity">center</item>-->
+<!--        <item name="android:minLines">2</item>-->
+        <item name="android:ellipsize">@null</item>
+
+
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item>
+<!--        <item name="android:padding">10dp</item>-->
+<!--        <item name="android:layout_margin">20dp</item>-->
+        <item name="android:gravity">center</item>
+<!--        <item name="android:minLines">2</item>-->
+        <item name="android:ellipsize">@null</item>
+
+
+
+    </style>
+<!---->
+    <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+<!--        <item name="itemIconTint">@color/bottom_navigation_item_selector</item>-->
+<!--        <item name="itemTextColor">@color/bottom_navigation_item_selector</item>-->
+        <item name="itemTextAppearanceActive">@style/MyBottomNavigationView.TextAppearance</item>
+        <item name="itemTextAppearanceInactive">@style/MyBottomNavigationView.TextAppearance</item>
+<!--        <item name="itemIconSize">20dp</item>-->
+<!--        <dimen name="design_bottom_navigation_height">45dp</dimen>-->
+<!--        <item name="paddingStart">10dp</item>-->
+<!--        <item name="paddingEnd">10dp</item>-->
+
+    </style>
+
+    <style name="MyBottomNavigationView.TextAppearance" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">false</item>
+<!--        <item name="android:lines">3</item>-->
+<!--        <item name="android:minLines">2</item>-->
+<!--        <item name="android:maxLength">4</item>-->
+        <item name="android:ellipsize">@null</item>
+<!--        <item name="android:height">@dimen/browser_actions_context_menu_max_width</item>-->
+
+<!--        <item name="fontFamily">@font/exo2_medium</item>-->
+    </style>
+
+
+    <style name="FullScreenDialogStyle" parent="Theme.NewStart">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+</resources>

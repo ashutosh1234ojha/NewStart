@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment1">
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.newstart.navigatonview.bottom.Fragment1"
+        android:label="Home"
+        tools:layout="@layout/fragment1">
+        <action
+            android:id="@+id/action_fragment1_to_detailsFragment"
+            app:destination="@id/testDialogFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.newstart.navigatonview.bottom.Fragment2"
+        android:label="Network"
+        tools:layout="@layout/fragment2" />
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="com.example.newstart.navigatonview.bottom.Fragment3"
+        android:label="Menu"
+        tools:layout="@layout/fragment3" />
+    <fragment
+        android:id="@+id/fragment4"
+        android:name="com.example.newstart.navigatonview.bottom.Fragment4"
+        android:label="Chat"
+        tools:layout="@layout/fragment4" />
+    <fragment
+        android:id="@+id/fragment5"
+        android:name="com.example.newstart.navigatonview.bottom.Fragment5"
+        android:label="Menu"
+        tools:layout="@layout/fragment5" />
+
+    <fragment android:id="@+id/myRouterDetailsFragment"
+        android:name="com.example.newstart.navigatonview.FragmentDetails"
+        android:label="Router Details"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_routerDetails_to_home_fragment"
+            app:popUpTo="@id/fragment1" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/testDialogFragment"
+        android:name="com.example.newstart.navigatonview.TestDialogFragment"
+        android:label="TestDialogFragment"/> >
+</navigation>

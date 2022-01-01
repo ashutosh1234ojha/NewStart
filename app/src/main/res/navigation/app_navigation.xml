@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/myHomeFragment"
+    android:id="@+id/app_navigation">
+
+    <fragment android:id="@+id/myHomeFragment"
+        android:name="com.example.newstart.navigatonview.MyHomeFragment"
+        android:label="fragment_my_home"
+        tools:layout="@layout/my_home_fragment">
+      <action
+          android:id="@+id/action_myHomeFragment_to_mySecondFragment"
+          app:destination="@+id/mySecondFragment"
+          />
+
+    </fragment>
+    <fragment android:id="@+id/mySecondFragment"
+        android:name="com.example.newstart.navigatonview.MySecondFragment"
+        android:label="my_second_fragment"
+        tools:layout="@layout/my_second_fragment">
+        <action
+            android:id="@+id/action_mySecondFragment_to_myThirdFragment"
+            app:destination="@id/myThirdFragment"
+            />
+        <argument
+            android:name="arg2"
+            app:argType="integer"
+            android:defaultValue="2"/>
+
+    </fragment>
+
+        <fragment
+            android:id="@+id/myThirdFragment"
+            android:name="com.example.newstart.navigatonview.MyThirdFragment"
+            android:label="my_third_fragment"
+            tools:layout="@layout/my_third_fragment">
+            <action
+                android:id="@+id/action_myThirdFragment_to_myHomeFragment"
+                app:destination="@+id/myHomeFragment" />
+            <action
+                android:id="@+id/action_myThirdFragment_to_mySecondFragment"
+                app:popUpTo="@id/mySecondFragment" />
+
+        </fragment>
+
+</navigation>
