@@ -5,8 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.example.newstart.databinding.fragment.StringUtils"/>
+
+        <import type="com.example.newstart.databinding.fragment.StringUtils" />
+
         <import type="android.view.View"/>
+            <import type="com.example.newstart.R"/>
 
         <variable
             name="product"
@@ -33,11 +36,24 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vest101"
+            app:imageUrl="@{`https://square.github.io/picasso/static/sample.png`}"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            app:placeHolder="@{R.drawable.place}" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_product"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:layout_marginBottom="8dp"-->
+        <!--            app:imageName="@{product.image}"-->
+        <!--            app:layout_constraintDimensionRatio="1:1"-->
+        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--            app:layout_constraintRight_toRightOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/tv_name" />-->
 
         <RatingBar
             android:id="@+id/rating_bar"
