@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.example.newstart.databinding.event.MyListener" />
+
+        <variable
+            name="listenerOne"
+            type="com.example.newstart.databinding.event.EventActivity" />
+
+        <variable
+            name="listenerTwo"
+            type="com.example.newstart.databinding.event.EventActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickHandleOne"
+            android:text="btnOne"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{listener}"
+            android:text="btnTwo:"
+            app:layout_constraintTop_toBottomOf="@+id/btnOne" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{listenerOne::listenerOneMethod}"
+            android:text="btnTwo:"
+            app:layout_constraintTop_toBottomOf="@+id/btnTwo" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->listenerTwo.listenerTwoMethod(`helloTwo`)}"
+            android:text="btnFour:"
+            app:layout_constraintTop_toBottomOf="@+id/btnThree" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -3,12 +3,9 @@ package com.example.newstart.services
 import android.app.Service
 import android.content.Intent
 import android.os.*
-import android.os.Process.THREAD_PRIORITY_BACKGROUND
 import android.util.Log
 import android.widget.Toast
 import com.example.newstart.asds
-import kotlinx.coroutines.delay
-import java.lang.Process
 import java.lang.Thread.sleep
 
 /**
