@@ -36,7 +36,8 @@ public class Coding {
 
     }
 
-    ArrayList<ArrayList<Integer>> outter=null;
+    ArrayList<ArrayList<Integer>> outter=new  ArrayList<ArrayList<Integer>>();;
+
      ArrayList<ArrayList<Integer>> findStairs(int n, int[] arr){
 
         if(n<0){
@@ -49,26 +50,28 @@ public class Coding {
             return  out;
         }
         ArrayList<ArrayList<Integer>> main=null;
-        for(int i=0;i<arr.length;i++){
-            int diff=n-arr[i];
-            main=findStairs(diff,arr);
-            if(main!=null){
-                int l=main.size();
-                ArrayList<Integer> sub=main.get(l-1);
-                sub.add(arr[l-1]);
-                main.set(l-1,sub);
+         for (int j : arr) {
+             int diff = n - j;
+             main = findStairs(diff, arr);
+             if (main != null) {
+//                ArrayList<Integer> sub=main.get(0);
+//                sub.add(arr[i]);
+                 Log.d("StairPath", j + "");
+//                main.set(0,sub);
+//                int l=outter.size()-1;
+//                if(l<0){
+//                    outter.addAll(main);
+//                }else{
+//                    outter.set(l,sub);
+//
+//                }
 
-                if(outter==null){
-                    outter=main;
-                }else{
-                    outter.addAll(main);
-                }
-                return main;
-            }
-        }
+//                return main;
+             }
+         }
 
-      //  return main;
-         return outter;
+        return main;
+       //  return outter;
     }
 
 }

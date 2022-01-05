@@ -16,10 +16,16 @@ public class ProgramActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Coding coding = new Coding();
-        int[] arr = {3, 2, 1};
-        ArrayList<ArrayList<Integer>> out =
+        int[] arr = {2,3};
+        ArrayList<ArrayList<Integer>> out   =
                 coding.findStairs(4, arr);
 
-        Log.d("ArrayList", out.toString());
+        if(out==null){
+            Log.d("ArrayList", "out?.toString()");
+
+        }else {
+            Log.d("ArrayList", out.toString());
+
+        }
     }
 }
