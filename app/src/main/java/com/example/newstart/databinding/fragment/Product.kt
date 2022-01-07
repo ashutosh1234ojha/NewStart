@@ -1,8 +1,13 @@
 package com.example.newstart.databinding.fragment
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+
 /**
  * Created by Ashutosh Ojha on 28,December,2021
  */
+@Parcelize
 data class Product(
     val itemId: String,
     val name: String,
@@ -12,4 +17,4 @@ data class Product(
     val rating: Float,
     val totalRatings: Int,
     val image: String
-)
+):Parcelable
