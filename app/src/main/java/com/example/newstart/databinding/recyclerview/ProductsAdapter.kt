@@ -13,8 +13,8 @@ import com.example.newstart.databinding.fragment.Product
  * Created by Ashutosh Ojha on 03,January,2022
  */
 
-class ProductsAdapter(private val context: Context, private val dataList: List<Product>)
-    : RecyclerView.Adapter<ProductsAdapter.BindingViewHolder>() {
+class ProductsAdapter(private val context: Context, private val dataList: List<Product>) :
+    RecyclerView.Adapter<ProductsAdapter.BindingViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder {
 
@@ -35,6 +35,6 @@ class ProductsAdapter(private val context: Context, private val dataList: List<P
 
     override fun getItemCount() = dataList.size
 
-    class BindingViewHolder(val itemBinding: ViewDataBinding)
-        : RecyclerView.ViewHolder(itemBinding.root)
+    class BindingViewHolder(val itemBinding: ViewDataBinding) :
+        RecyclerView.ViewHolder(itemBinding.root)
 }
