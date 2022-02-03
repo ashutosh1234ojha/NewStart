@@ -15,4 +15,20 @@
         voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?who avoids a pain that produces no resultant pleasure? nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</string>
 
    <string name="price">$%s </string>
+    <string name="app_name_">GFG | CollapseToolbar</string>
+    <string name="content">With the idea of imparting programming
+      knowledge, Mr. Sandeep Jain, an IIT Roorkee alumnus started a
+      dream, GeeksforGeeks. Whether programming excites you or you feel
+      stifled, wondering how to prepare for interview questions or how to
+      ace data structures and algorithms, GeeksforGeeks is a one-stop solution.
+      With every tick of time, we are adding arrows in our quiver. From articles
+      on various computer science subjects to programming problems for practice,
+      from basic to premium courses, from technologies to entrance examinations,
+      we have been building ample content with superior quality. In a short span,
+      we have built a community of 1 Million+ Geeks around the world, 20,000+
+      Contributors and 500+ Campus Ambassadors in various colleges across the nation.
+      Our success stories include a lot of students who benefitted in their placements
+      and landed jobs at tech giants. Our vision is to build a gigantic network of
+      geeks and we are only a fraction of it yet.
+  </string>
 </resources>

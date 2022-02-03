@@ -15,6 +15,9 @@ public class MyClass {
 //    }
 
     public Long fib(Long n, HashMap<Long, Long> hm) {
+
+        HashMap<Integer, Integer> h1m = new HashMap<>();
+        h1m.put(1,2);
         if (hm.containsKey(n)) {
             return hm.get(n);
         }

@@ -3,6 +3,9 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
+    id 'dagger.hilt.android.plugin'
+
 }
 //apply plugin: 'kotlin-android'
 //apply plugin: 'kotlin-kapt'
@@ -15,13 +18,14 @@ android {
 
     defaultConfig {
         applicationId "com.example.newstart"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
 
     }
 
@@ -37,6 +41,8 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+
     }
 //    buildFeatures {
 //        viewBinding true
@@ -55,10 +61,13 @@ android {
 //    }
 
 
+
 }
 
 dependencies {
-    def room_version = "2.4.0"
+
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.0'
+    def room_version = "2.4.1"
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.20"
@@ -77,6 +86,8 @@ dependencies {
 
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:2.4.1"
+
 
     //Navigation view
     def nav_version = "2.1.0-beta01"
@@ -97,4 +108,35 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-installations:17.0.0'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+
+    //hilt
+//    implementation 'com.google.dagger:hilt-android:2.38.1'
+//    kapt 'com.google.dagger:hilt-android-compiler:2.38.1'
+//    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+    implementation 'com.google.dagger:hilt-android:2.40.5'
+    kapt 'com.google.dagger:hilt-compiler:2.40.5'
+
+
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+
+//    implementation 'androidx.room:room-ktx:2.2.1'
+//    kapt "androidx.room:room-compiler:2.2.1"
+
+
+
+
+}
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

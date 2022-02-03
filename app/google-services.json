@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "653824029806",
+    "project_id": "newstart-35402",
+    "storage_bucket": "newstart-35402.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653824029806:android:f321095593002638bee27f",
+        "android_client_info": {
+          "package_name": "com.example.newstart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653824029806-d0qai34bjjs0ecv5l25j2v2inhmo5usm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBciZ13qqOCjs-K9vrIOvBg6yi9sAUlvTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653824029806-d0qai34bjjs0ecv5l25j2v2inhmo5usm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
