@@ -61,6 +61,7 @@ class RestaurantActivity : AppCompatActivity() {
                 tvError.text = result.error?.localizedMessage
             })
         }
+
     }
 
 

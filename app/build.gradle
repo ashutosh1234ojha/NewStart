@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.newstart"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
@@ -131,6 +131,10 @@ dependencies {
 
 //    implementation 'androidx.room:room-ktx:2.2.1'
 //    kapt "androidx.room:room-compiler:2.2.1"
+
+    //Image Picker
+    implementation 'com.kbeanie:multipicker:1.6.2@aar'
+
 
 
 
