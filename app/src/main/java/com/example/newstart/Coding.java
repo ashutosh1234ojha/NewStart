@@ -3,6 +3,7 @@ package com.example.newstart;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -150,65 +151,88 @@ public class Coding {
 //
 //            }
 //        }
-        int arr[][] = new int[8][8];
-        find_(arr, 0, 0, 7,0+""+7);
+        int arr[][] = new int[5][5];
+        find_(arr, 1, 2, 2, 2 + "" + 2);
 
 
     }
 
 
-    public void find_(int arr[][], int count, int r, int c,String asf) {
-        if (count == 64) {
-            Log.d("Output", count + "Valid "+asf);
+    public void find_(int[][] arr, int count, int r, int c, String asf) {
+
+        if (r < 0 || c < 0 || r >= arr.length || c >= arr[r].length || arr[r][c] > 0) {  //next move not possible
+
+
+            //   Log.d("Output", count + "Invalid "+asf);
+//            for (int[] row : arr)
+//                System.out.println(Arrays.toString(row));
+            return;
+
+        }
+        if (count == 25) {
+            arr[r][c] = 25;
+            for (int[] row : arr)
+                System.out.println(Arrays.toString(row));
+            Log.d("Output", 1 + "Valid " + asf);
+
+            arr[r][c] = 0;
             return;
         }
-        if (r >= arr.length || r < 0 || c < 0 || c >= arr[r].length || arr[r][c] != 0) {  //next move not possible
-            Log.d("Output", count + "Invalid "+asf);
-
-            return;
-
-        }
-
-        arr[r][c] = ++count;
-        find_(arr, count, r - 2, c + 1,asf+"-"+(r-2)+(c+1));
-      //  arr[r][c] = --count;
-
-     //   arr[r][c] = ++count;
-        find_(arr, count, r - 1, c + 2,asf+"-"+(r-1)+(c+2));
-     //   arr[r][c] = --count;
-
-      //  arr[r][c] = ++count;
-        find_(arr, count, r + 1, c + 2,asf+"-"+(r+1)+(c+2));
-       // arr[r][c] = --count;
-
-    //    arr[r][c] = ++count;
-        find_(arr, count, r + 2, c + 1,asf+"-"+(r+2)+(c+1));
-    //    arr[r][c] = --count;
-
-      //  arr[r][c] = ++count;
-        find_(arr, count, r + 2, c - 1,asf+"-"+(r+2)+(c-1));
-    //    arr[r][c] = --count;
-
-    //    arr[r][c] = ++count;
-        find_(arr, count, r + 1, c - 2,asf+"-"+(r+1)+(c-2));
-       // arr[r][c] = --count;
-
-      //  arr[r][c] = ++count;
-        find_(arr, count, r - 1, c - 2,asf+"-"+(r-1)+(c-2));
-     //   arr[r][c] = --count;
 
 
-    //    arr[r][c] = ++count;
-        find_(arr, count, r - 2, c - 1,asf+"-"+(r-2)+(c-1));
+        arr[r][c] = count;
+        find_(arr, count + 1, r - 2, c + 1, asf + "-" + (r - 2) + (c + 1));
+//        arr[r][c] = --count;
+//        arr[r][c] = 0;
+
+
+//        arr[r][c] = ++count;
+//        arr[r][c] = count;
+        find_(arr, count + 1, r - 1, c + 2, asf + "-" + (r - 1) + (c + 2));
+//        arr[r][c] = --count;
+//        arr[r][c] = 0;
+
+
+//        arr[r][c] = ++count;
+//        arr[r][c] = count;
+        find_(arr, count + 1, r + 1, c + 2, asf + "-" + (r + 1) + (c + 2));
+//        arr[r][c] = --count;
+//        arr[r][c] = 0;
+//
+
+//        arr[r][c] = ++count;
+//        arr[r][c] = count;
+        find_(arr, count + 1, r + 2, c + 1, asf + "-" + (r + 2) + (c + 1));
+//        arr[r][c] = --count;
+//        arr[r][c] = 0;
+
+
+//        arr[r][c] = ++count;
+//        arr[r][c] = count;
+        find_(arr, count + 1, r + 2, c - 1, asf + "-" + (r + 2) + (c - 1));
+//        arr[r][c] = --count;
+//        arr[r][c] = 0;
+
+
+//        arr[r][c] = ++count;
+//        arr[r][c] = count;
+        find_(arr, count + 1, r + 1, c - 2, asf + "-" + (r + 1) + (c - 2));
+//        arr[r][c] = --count;
+//        arr[r][c] = 0;
+
+
+//        arr[r][c] = ++count;
+//        arr[r][c] = count;
+        find_(arr, count + 1, r - 1, c - 2, asf + "-" + (r - 1) + (c - 2));
+//        arr[r][c] = --count;
+//        arr[r][c] = 0;
+
+
+//        arr[r][c] = ++count;
+//        arr[r][c] = count;
+        find_(arr, count + 1, r - 2, c - 1, asf + "-" + (r - 2) + (c - 1));
+        //   arr[r][c] = 0;
         arr[r][c] = 0;
-
-
-
-
-
-
-
-
 
 
 //        for(int c=0;c<arr[r].length;c++){
