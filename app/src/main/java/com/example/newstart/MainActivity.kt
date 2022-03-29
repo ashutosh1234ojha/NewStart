@@ -1,6 +1,7 @@
 package com.example.newstart
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
@@ -12,17 +13,16 @@ import java.util.*
 // ca-app-pub-2357253533591651/6583202917
 
 class MainActivity : AppCompatActivity() {
-  lateinit  var adRequest:AdRequest
-  lateinit  var ad_view:AdView
-  var a:Unit=Unit
+    lateinit var adRequest: AdRequest
+    lateinit var ad_view: AdView
+    var a: Unit = Unit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.test_layout)
+        setContentView(R.layout.activity_main)
 
 
-
-        val btn=findViewById<Button>(R.id.btn)
+        val btn = findViewById<Button>(R.id.btn)
         btn.setOnClickListener {
 //            val singleLinkedList= SingleLinkedList()
 //            val node= SingleLinkedList.Node(0)
@@ -47,20 +47,20 @@ class MainActivity : AppCompatActivity() {
 //            singleLinkedList.display()
 
 
-            val myClass=MyClass()
+            val myClass = MyClass()
 
 //                myClass.longestCommonSum(3)
 
-           // myClass.doUnion();
-            myClass.substrCount(5,"asasd");
+            // myClass.doUnion();
+            myClass.substrCount(5, "asasd");
 
 
-         //   reverseAString();
+            Log.d("CountCount", myClass.countD().toString())
+            //   reverseAString();
         }
 
 
-
-       // MobileAds.initialize(this) {}
+        // MobileAds.initialize(this) {}
 //        MobileAds.setRequestConfiguration(
 //                RequestConfiguration.Builder()
 //                        .setTestDeviceIds(listOf("ABCDEF012345"))
@@ -75,27 +75,26 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     // Called when leaving the activity
     public override fun onPause() {
-    //    ad_view.pause()
+        //    ad_view.pause()
         super.onPause()
     }
 
     // Called when returning to the activity
     public override fun onResume() {
         super.onResume()
-     //   ad_view.resume()
+        //   ad_view.resume()
     }
 
     // Called before the activity is destroyed
     public override fun onDestroy() {
-     //   ad_view.destroy()
+        //   ad_view.destroy()
         super.onDestroy()
     }
 
     fun a1() {
-      val linkedList=LinkedList<Int>()
+        val linkedList = LinkedList<Int>()
         linkedList.add(1)
 
         linkedList.reverse()
@@ -103,16 +102,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun trycatch():Int{
-        try{
+    fun trycatch(): Int {
+        try {
             return 1
-        }catch (e:Exception){
-            return  2
-        }finally {
-            return  3
+        } catch (e: Exception) {
+            return 2
+        } finally {
+            return 3
         }
     }
-
 
 
 }

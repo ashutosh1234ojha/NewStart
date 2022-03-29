@@ -40,7 +40,7 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/banner_ad_unit_id_"/>
-        <activity android:name=".coroutines.MyCoroutines"
+        <activity android:name=".downloadManager.DownloadDemo"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
