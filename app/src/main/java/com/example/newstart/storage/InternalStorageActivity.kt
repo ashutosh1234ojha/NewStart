@@ -48,7 +48,7 @@ class InternalStorageActivity : AppCompatActivity() {
             }
         }
 
-        bind.takePhoto.setOnClickListener{
+        bind.takePhoto.setOnClickListener {
             takePhoto.launch()
         }
 
@@ -74,11 +74,10 @@ class InternalStorageActivity : AppCompatActivity() {
 
 
     private fun savePhotoToInternalStorage(name: String, bmp: Bitmap): Boolean {
-        return try {
 
-//            val stream = openFileOutput("$name.jpg", MODE_PRIVATE) as OutputStream
-//            bmp.compress(Bitmap.CompressFormat.JPEG, 90, stream)
-//            stream.close()
+        val op = filesDir
+        op.outputStream().write(bmp.rowBytes)
+        return try {
             openFileOutput("$name.jpg", MODE_PRIVATE).use { stream ->
                 if (!bmp.compress(Bitmap.CompressFormat.JPEG, 90, stream)) {
                     throw IOException("Could not save the bitmap")
@@ -89,6 +88,21 @@ class InternalStorageActivity : AppCompatActivity() {
             io.printStackTrace()
             false
         }
+
+//        var stream:OutputStream ?=null
+//        return try {
+//             stream = openFileOutput("$name.jpg", MODE_PRIVATE) as OutputStream
+//            val isCompressed = bmp.compress(Bitmap.CompressFormat.JPEG, 90, stream) as Boolean
+//            if (!isCompressed) {
+//                throw IOException("Could not save the bitmap")
+//            }
+//            true
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//            false
+//        }finally {
+//            stream?.close()
+//        }
     }
 
     private suspend fun loadPhotoFromInternalStorage(): List<InternalStorageImageData> {
