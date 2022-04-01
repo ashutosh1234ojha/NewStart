@@ -135,6 +135,9 @@ dependencies {
     //Image Picker
     implementation 'com.kbeanie:multipicker:1.6.2@aar'
 
+    implementation 'androidx.activity:activity-ktx:1.6.0-alpha01'
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+
 
 
 
