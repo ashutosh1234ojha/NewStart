@@ -31,8 +31,10 @@ import java.net.URLConnection
 
 class DownloadDemo : Activity() {
     private val REQUEST_CODE = 100
-    val imageURL = "http://ichef.bbci.co.uk/onesport/cps/480/cpsprodpb/11136/production/_95324996_defoe_rex.jpg"
-//    val imageURL = "https://notes-apps.000webhostapp.com/android/demoImage.png"
+    val imageURL =
+        "http://ichef.bbci.co.uk/onesport/cps/480/cpsprodpb/11136/production/_95324996_defoe_rex.jpg"
+
+    //    val imageURL = "https://notes-apps.000webhostapp.com/android/demoImage.png"
     var imageName = "demoImage.jpg"
     private var mgr: DownloadManager? = null
     lateinit var tvCM: TextView
@@ -62,7 +64,7 @@ class DownloadDemo : Activity() {
 
         tvCM = findViewById<TextView>(R.id.tvCM)
         tvCM.setOnClickListener {
-          //  downloadTask("http://ichef.bbci.co.uk/onesport/cps/480/cpsprodpb/11136/production/_95324996_defoe_rex.jpg")
+            //  downloadTask("http://ichef.bbci.co.uk/onesport/cps/480/cpsprodpb/11136/production/_95324996_defoe_rex.jpg")
             //    startDownload(tvCM)
             downloadImage(imageURL, imageName);
 
@@ -216,7 +218,7 @@ class DownloadDemo : Activity() {
                         DownloadManager.Request.NETWORK_MOBILE
             )
             //      request.setDestinationUri(Uri.fromFile(file));
-          //  request.setDestinationInExternalPublicDir()
+            //  request.setDestinationInExternalPublicDir()
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             if (downloadManager != null) {
                 downloadManager.enqueue(request);
@@ -236,6 +238,10 @@ class DownloadDemo : Activity() {
     }
 
     fun downloadImage(url: String?, outputFileName: String?) {
+        val path = Environment.getExternalStoragePublicDirectory(
+            Environment.DIRECTORY_PICTURES
+        )
+        val file = File(path, "DemoPicture.jpg")
         val request = DownloadManager.Request(Uri.parse(url))
         request.setTitle(imageName)
         request.setDescription("Downloading $imageName")
@@ -245,7 +251,12 @@ class DownloadDemo : Activity() {
         )
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
         request.allowScanningByMediaScanner()
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, outputFileName)
+        request.setDestinationInExternalPublicDir(
+            Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES
+            ).toString(), "DemoPicture.jpg"
+        )
+//        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, outputFileName)
         val manager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         manager.enqueue(request)
     }
