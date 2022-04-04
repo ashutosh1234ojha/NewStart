@@ -1,17 +1,20 @@
 package com.example.newstart.storage.external
 
 import android.Manifest
+import android.app.RecoverableSecurityException
 import android.content.ContentUris
 import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.database.ContentObserver
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.launch
 import androidx.appcompat.app.AppCompatActivity
@@ -35,7 +38,9 @@ class ExternalStorageActivity : AppCompatActivity() {
     private var readPermissionGranted = false
     private var writePermissionGranted = false
     private lateinit var activityPermissionLauncher: ActivityResultLauncher<Array<String>>
+    private lateinit var intentSenderLauncher: ActivityResultLauncher<IntentSenderRequest>
     private lateinit var contentObserver: ContentObserver
+    private var deletedImageUri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,6 +50,10 @@ class ExternalStorageActivity : AppCompatActivity() {
         rv = bind.rv
         rvadapter = ExternalStoragePhotoAdapter {
             //deleteFileFromInternalStorage(it.name)
+            lifecycleScope.launch {
+                deletePhotoFromExternalStorage(it.uri)
+                deletedImageUri = it.uri
+            }
         }
         setUpRv()
         intiContentObserver()
@@ -93,12 +102,34 @@ class ExternalStorageActivity : AppCompatActivity() {
 
         }
 
+        intentSenderLauncher =
+            registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
+
+                if (result.resultCode == RESULT_OK) {
+                    api29SpecialCase()
+                    Toast.makeText(this, "Photo  delete  success", Toast.LENGTH_SHORT).show()
+
+                } else {
+                    Toast.makeText(this, "Photo  delete  failure", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
         bind.takePhoto.setOnClickListener {
             takePhoto.launch()
         }
 
-     //   loadPhotosFromExternalStorageIntoRecyclerView()
+        //   loadPhotosFromExternalStorageIntoRecyclerView()
 
+    }
+
+    private fun api29SpecialCase() {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
+            lifecycleScope.launch {
+                deletePhotoFromExternalStorage(deletedImageUri!!)
+                return@launch
+            }
+        }
     }
 
     private fun setUpRv() {
@@ -201,6 +232,33 @@ class ExternalStorageActivity : AppCompatActivity() {
 
     }
 
+    private suspend fun deletePhotoFromExternalStorage(uri: Uri) {
+        withContext(Dispatchers.IO) {
+            try {
+
+                contentResolver.delete(uri, null, null)
+            } catch (e: SecurityException) {
+                e.printStackTrace()
+                val intentSender = when {
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> { //API 30
+                        MediaStore.createDeleteRequest(contentResolver, listOf(uri)).intentSender
+                    }
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {//APi 29
+                        val recoverableSecurityException = e as RecoverableSecurityException
+                        recoverableSecurityException.userAction.actionIntent.intentSender
+                    }
+                    else -> null
+                }
+                intentSender?.let { sender ->
+                    intentSenderLauncher.launch(IntentSenderRequest.Builder(sender).build())
+
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
     private suspend fun savePhotoToExternalStorage(displayName: String, bmp: Bitmap): Boolean {
 
 //        val imageCollection = sdk29AndUp {
@@ -238,11 +296,6 @@ class ExternalStorageActivity : AppCompatActivity() {
     }
 
     private suspend fun loadPhotosFromExternalStorage(): List<SharedStoragePhoto> {
-
-//        val projection = arrayOf(MediaStore.Images.Media.DISPLAY_NAME)
-//        val projection = arrayOf(MediaStore.Images.Media.WIDTH)
-//        val projection = arrayOf(MediaStore.Images.Media.HEIGHT)
-
         return withContext(Dispatchers.IO) {
             val imageCollection = sdk29AndUp {
                 MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
