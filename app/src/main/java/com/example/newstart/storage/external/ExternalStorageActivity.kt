@@ -59,30 +59,9 @@ class ExternalStorageActivity : AppCompatActivity() {
         intiContentObserver()
         initPermission()
 
-        //  loadFilesToRv()
-
-
-//        activityPermissionLauncher =
-//            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-//                readPermissionGranted =
-//                    permissions[Manifest.permission.READ_EXTERNAL_STORAGE] ?: readPermissionGranted
-//                writePermissionGranted = permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE]
-//                    ?: writePermissionGranted
-//
-//                if (readPermissionGranted) {
-//                    loadPhotosFromExternalStorageIntoRecyclerView()
-//                } else {
-//                    Toast.makeText(this, "Can't read files without permission.", Toast.LENGTH_LONG)
-//                        .show()
-//                }
-//            }
-//        updateOrRequestPermission()
-
-
         val takePhoto = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) {
             lifecycleScope.launch {
                 val loadSuccess = savePhotoToExternalStorage(UUID.randomUUID().toString(), it!!)
-
                 if (loadSuccess) {
                     loadFilesToRv()
                     Toast.makeText(
@@ -99,7 +78,6 @@ class ExternalStorageActivity : AppCompatActivity() {
 
                 }
             }
-
         }
 
         intentSenderLauncher =
@@ -118,9 +96,6 @@ class ExternalStorageActivity : AppCompatActivity() {
         bind.takePhoto.setOnClickListener {
             takePhoto.launch()
         }
-
-        //   loadPhotosFromExternalStorageIntoRecyclerView()
-
     }
 
     private fun api29SpecialCase() {

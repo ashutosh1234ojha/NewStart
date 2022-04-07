@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
@@ -36,12 +37,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:name=".cache.RestaurantApplication"
         android:theme="@style/Theme.NewStart">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/banner_ad_unit_id_"/>
-        <activity android:name=".storage.external.ExternalStorageActivity"
+        <activity android:name=".downloadManager.DownloadDemo"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
