@@ -1,31 +1,38 @@
 package com.example.newstart.pagination
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
+import androidx.paging.*
 import com.example.newstart.pagination.network.CharacterData
 import com.example.newstart.pagination.network.RetroInstance
 import com.example.newstart.pagination.network.RetroService
+import com.example.newstart.pagination.room.CharDb
 import kotlinx.coroutines.flow.Flow
 
 /**
  * Created by Ashutosh Ojha on 10,April,2022
  */
-class MainActivityVM : ViewModel() {
-    lateinit var retroService: RetroService
+class MainActivityVM(application: Application) : AndroidViewModel(application) {
+     var retroService: RetroService = RetroInstance.getRetroInstance().create(RetroService::class.java)
 
-    init {
-        retroService = RetroInstance.getRetroInstance().create(RetroService::class.java)
+    @ExperimentalPagingApi
+    fun getListDataUsingMediator(): Flow<PagingData<CharacterData>> {
+        val db = CharDb.getInstance(getApplication())
+        return Pager(
+            config = PagingConfig(pageSize = 50),
+            remoteMediator = CharRemoteMediator(
+                10,
+                db,
+                RetroInstance.getRetroInstance().create(RetroService::class.java)
+            )
+        ) {
+            db.userDao().pagingSource(6)
+        }.flow.cachedIn(viewModelScope)
+
     }
 
     fun getListData(): Flow<PagingData<CharacterData>> {
-//        return Pager(config = PagingConfig(pageSize = 20, maxSize = 200),
-//            pagingSourceFactory = { CharacterPagingSource(retroService) }).flow.cachedIn(
-//            viewModelScope
-//        )
         return Pager(config = PagingConfig(pageSize = 20, maxSize = 200),
             pagingSourceFactory = { CharacterPagingSource(retroService) }).flow.cachedIn(
             viewModelScope

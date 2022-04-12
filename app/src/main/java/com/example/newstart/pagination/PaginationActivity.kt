@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,7 @@ import kotlinx.coroutines.launch
 class PaginationActivity : AppCompatActivity() {
 
     lateinit var paginationAdapter: PaginationAdapter
+    @ExperimentalPagingApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pagination)
@@ -37,10 +39,19 @@ class PaginationActivity : AppCompatActivity() {
         }
     }
 
+    @ExperimentalPagingApi
     fun intiVm() {
         val vm: MainActivityVM by viewModels()
+        //Direct network  call
+//        lifecycleScope.launch {
+//            vm.getListData().collectLatest {
+//                paginationAdapter.submitData(it)
+//            }
+//        }
+
+        //Mediator Call
         lifecycleScope.launch {
-            vm.getListData().collectLatest {
+            vm.getListDataUsingMediator().collectLatest {
                 paginationAdapter.submitData(it)
             }
         }
