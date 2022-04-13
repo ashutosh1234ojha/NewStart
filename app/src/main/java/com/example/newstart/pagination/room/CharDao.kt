@@ -15,8 +15,11 @@ interface CharDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(users: List<CharacterData>)
 
-    @Query("SELECT * FROM CharacterData WHERE uid LIKE :query")
-    fun pagingSource(query: Int): PagingSource<Int, CharacterData>
+//    @Query("SELECT * FROM CharacterData WHERE uid LIKE :query")
+//    fun pagingSource(query: Int): PagingSource<Int, CharacterData>
+
+    @Query("SELECT * FROM CharacterData")
+    fun pagingSource(): PagingSource<Int, CharacterData>
 
     @Query("DELETE FROM CharacterData")
     suspend fun clearAll()

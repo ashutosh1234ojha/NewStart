@@ -14,21 +14,27 @@ import kotlinx.coroutines.flow.Flow
  * Created by Ashutosh Ojha on 10,April,2022
  */
 class MainActivityVM(application: Application) : AndroidViewModel(application) {
-     var retroService: RetroService = RetroInstance.getRetroInstance().create(RetroService::class.java)
+    val db = CharDb.getInstance(getApplication())
+
+    var retroService: RetroService =
+        RetroInstance.getRetroInstance().create(RetroService::class.java)
+
 
     @ExperimentalPagingApi
     fun getListDataUsingMediator(): Flow<PagingData<CharacterData>> {
-        val db = CharDb.getInstance(getApplication())
         return Pager(
-            config = PagingConfig(pageSize = 50),
+            config = PagingConfig(pageSize = 10),
             remoteMediator = CharRemoteMediator(
                 10,
                 db,
                 RetroInstance.getRetroInstance().create(RetroService::class.java)
             )
         ) {
-            db.userDao().pagingSource(6)
-        }.flow.cachedIn(viewModelScope)
+
+
+         db.userDao().pagingSource()
+
+        }.flow
 
     }
 

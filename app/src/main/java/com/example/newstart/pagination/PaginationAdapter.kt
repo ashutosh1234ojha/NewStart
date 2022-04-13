@@ -31,12 +31,14 @@ class PaginationAdapter :
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val image = view.findViewById<ImageView>(R.id.imageView)
         val tvOne = view.findViewById<TextView>(R.id.tvOne)
+        val tvThree = view.findViewById<TextView>(R.id.tvThree)
         val tvTwo = view.findViewById<TextView>(R.id.tvTwo)
         fun bind(data: CharacterData?) {
 
             data?.let {
                 tvOne.text = data.name
                 tvTwo.text = data.species
+                tvThree.text = data.uid.toString()
 
                 Glide.with(image).load(data.image).circleCrop().into(image)
             }
