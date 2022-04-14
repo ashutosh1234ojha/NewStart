@@ -18,12 +18,31 @@ import kotlinx.coroutines.launch
 class PaginationActivity : AppCompatActivity() {
 
     lateinit var paginationAdapter: PaginationAdapter
+
     @ExperimentalPagingApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pagination)
-        intiRv()
+     //   intiRv()
+        intiRvStates()
+
         intiVm()
+    }
+
+    private fun intiRvStates() {
+        val rv = findViewById<RecyclerView>(R.id.recyclerView)
+        paginationAdapter = PaginationAdapter()
+        rv.apply {
+            adapter =
+                paginationAdapter.withLoadStateFooter(LoaderStateAdapter { paginationAdapter.retry() }
+                )
+            layoutManager = LinearLayoutManager(this@PaginationActivity)
+
+
+            val decoration =
+                DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
+            addItemDecoration(decoration)
+        }
     }
 
     private fun intiRv() {
@@ -43,17 +62,17 @@ class PaginationActivity : AppCompatActivity() {
     fun intiVm() {
         val vm: MainActivityVM by viewModels()
         //Direct network  call
-//        lifecycleScope.launch {
-//            vm.getListData().collectLatest {
-//                paginationAdapter.submitData(it)
-//            }
-//        }
-
-        //Mediator Call
         lifecycleScope.launch {
-            vm.getListDataUsingMediator().collectLatest {
+            vm.getListData().collectLatest {
                 paginationAdapter.submitData(it)
             }
         }
+
+        //Mediator Call
+//        lifecycleScope.launch {
+//            vm.getListDataUsingMediator().collectLatest {
+//                paginationAdapter.submitData(it)
+//            }
+//        }
     }
 }

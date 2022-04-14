@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/layout/item_call.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/item_email.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/item_message.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/item_pagging_loader.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_photo.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/layout_data.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/layout_data_new.xml" value="0.240625" />
@@ -35,6 +36,7 @@
         <entry key="app/src/main/res/layout/restaurant_item.xml" value="0.18796296296296297" />
         <entry key="app/src/main/res/layout/rv_row.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/test_layout.xml" value="0.240625" />
+        <entry key="app/src/main/res/xml/motion_loader.xml" value="0.240625" />
       </map>
     </option>
   </component>
