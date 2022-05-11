@@ -9,6 +9,8 @@ import com.bumptech.glide.load.HttpException
 import com.example.newstart.pagination.network.CharacterData
 import com.example.newstart.pagination.network.RetroService
 import com.example.newstart.pagination.room.CharDb
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 import java.io.IOException
 
@@ -52,6 +54,9 @@ class CharRemoteMediator(
                     // no more items to load.
 
                     lastItem.uid
+                    GlobalScope.launch {
+
+                    }
                 }
             }
 

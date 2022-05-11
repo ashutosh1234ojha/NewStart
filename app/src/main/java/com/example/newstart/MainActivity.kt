@@ -1,7 +1,6 @@
 package com.example.newstart
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
@@ -24,39 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         val btn = findViewById<Button>(R.id.btn)
         btn.setOnClickListener {
-//            val singleLinkedList= SingleLinkedList()
-//            val node= SingleLinkedList.Node(0)
-//            singleLinkedList.head=node
-//
-//            val node1= SingleLinkedList.Node(1)
-//            val node2= SingleLinkedList.Node(2)
-//            val node3= SingleLinkedList.Node(3)
-//            val node4= SingleLinkedList.Node(4)
-//
-//            node.next=node1
-//            node1.next=node2
-//            node2.next=node3
-//            node3.next=node4
-//            node4.next=null
-//
-//            singleLinkedList.display()
-//
-//          val pre=  singleLinkedList.reverse(node)
-//            singleLinkedList.head=pre
-//
-//            singleLinkedList.display()
 
-
-            val myClass = MyClass()
-
-//                myClass.longestCommonSum(3)
-
-            // myClass.doUnion();
-            myClass.substrCount(5, "asasd");
-
-
-            Log.d("CountCount", myClass.countD().toString())
-            //   reverseAString();
         }
 
 

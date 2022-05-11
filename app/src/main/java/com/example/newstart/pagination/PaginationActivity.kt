@@ -62,17 +62,17 @@ class PaginationActivity : AppCompatActivity() {
     fun intiVm() {
         val vm: MainActivityVM by viewModels()
         //Direct network  call
-        lifecycleScope.launch {
-            vm.getListData().collectLatest {
-                paginationAdapter.submitData(it)
-            }
-        }
-
-        //Mediator Call
 //        lifecycleScope.launch {
-//            vm.getListDataUsingMediator().collectLatest {
+//            vm.getListData().collectLatest {
 //                paginationAdapter.submitData(it)
 //            }
 //        }
+
+        //Mediator Call
+        lifecycleScope.launch {
+            vm.getListDataUsingMediator().collectLatest {
+                paginationAdapter.submitData(it)
+            }
+        }
     }
 }

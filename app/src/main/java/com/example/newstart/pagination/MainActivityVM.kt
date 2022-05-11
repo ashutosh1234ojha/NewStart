@@ -22,19 +22,17 @@ class MainActivityVM(application: Application) : AndroidViewModel(application) {
 
     @ExperimentalPagingApi
     fun getListDataUsingMediator(): Flow<PagingData<CharacterData>> {
+
         return Pager(
             config = PagingConfig(pageSize = 10),
+            pagingSourceFactory = { db.userDao().pagingSource() },
+
             remoteMediator = CharRemoteMediator(
                 10,
                 db,
                 RetroInstance.getRetroInstance().create(RetroService::class.java)
-            )
-        ) {
-
-
-         db.userDao().pagingSource()
-
-        }.flow
+            ),
+        ).flow
 
     }
 

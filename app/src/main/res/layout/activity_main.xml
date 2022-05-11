@@ -1,27 +1,25 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
 
     <TextView
         android:id="@+id/tvCM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/container"
-        android:textSize="34sp"
         android:layout_marginTop="10dp"
         android:text="Banner Ads Example"
-        android:textIsSelectable="true" />
+        android:textIsSelectable="true"
+        android:textSize="34sp" />
 
-    <!--    <com.google.android.gms.ads.AdView-->
-    <!--        android:id="@+id/ad_view"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        ads:adSize="BANNER"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        ads:adUnitId="@string/banner_ad_unit_id"-->
-    <!--         />-->
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView"
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerInParent="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
 
     <FrameLayout
@@ -38,22 +36,18 @@
         <Button
             android:id="@+id/btn"
             android:layout_width="wrap_content"
-            android:text="count"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="count" />
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="45dp"
-            android:layout_marginLeft="45dp"
-
-            android:layout_marginTop="10dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
             android:text="Download" />
 
     </LinearLayout>
