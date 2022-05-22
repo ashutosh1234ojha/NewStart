@@ -2,12 +2,12 @@ package com.example.newstart.room
 
 import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [MyInfo::class], version = 1)
+@Database(entities = [MyInfo::class], version = 2)
 abstract class MyInfoDatabase:RoomDatabase() {
     abstract fun noteDao(): MyInfoDao
 
@@ -22,10 +22,17 @@ abstract class MyInfoDatabase:RoomDatabase() {
                     .fallbackToDestructiveMigration()
                    // .addCallback(roomCallback)
                     .allowMainThreadQueries()
+                    .addMigrations(MIGRATION_1_2)
                     .build()
 
             return instance!!
 
+        }
+
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE date_time ADD COLUMN description TEXT NOT NULL DEFAULT 1")
+            }
         }
 //
 //        private val roomCallback = object : Callback() {
@@ -36,11 +43,7 @@ abstract class MyInfoDatabase:RoomDatabase() {
 //            }
 //        }
 
-        private fun populateDatabase(db: MyInfoDatabase) {
-            val noteDao = db.noteDao()
-            noteDao.insetMyInfo(MyInfo(id = 9,title = "",content = ""))
 
-        }
     }
 
 }

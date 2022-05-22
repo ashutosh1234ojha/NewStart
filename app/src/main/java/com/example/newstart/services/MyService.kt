@@ -9,7 +9,6 @@ import android.os.IBinder
 import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.newstart.R
-import com.example.newstart.room.MyInfo
 import com.example.newstart.room.MyInfoDatabase
 
 class MyService : Service() {
@@ -69,7 +68,7 @@ val data=MyInfoDatabase.getInstance(applicationContext).noteDao();
                 try {
                     for (i in 1..100) {
                         Log.d("MyService", "My number $i")
-                            data.insetMyInfo(MyInfo(i, "" + i, "" + i))
+                        //    data.insetMyInfo(MyInfo(i, "" + i, "" + i,""))
 //                        for (i in 1..100) {
 //                            Log.d("MyService", "My number $i")
 //                            for (i in 1..100) {
