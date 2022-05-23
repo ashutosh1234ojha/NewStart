@@ -29,7 +29,7 @@ abstract class MyInfoDatabase:RoomDatabase() {
 
         }
 
-        val MIGRATION_1_2 = object : Migration(1, 2) {
+      public  val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER TABLE date_time ADD COLUMN description TEXT NOT NULL DEFAULT 1")
             }
