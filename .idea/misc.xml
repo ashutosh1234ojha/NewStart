@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/layout-land/activity_multi_screen.xml" value="0.30364583333333334" />
         <entry key="app/src/main/res/layout-sw600dp/activity_multi_screen.xml" value="0.18046875" />
         <entry key="app/src/main/res/layout/activity_base_observable.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/activity_data_store.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_dynamic_activity.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_event.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_image_picer.xml" value="0.240625" />

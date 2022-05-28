@@ -164,6 +164,12 @@ dependencies {
     androidTestImplementation 'android.arch.persistence.room:testing:1.1.1'
     androidTestImplementation "androidx.room:room-testing:$room_version"
 
+    //Datastore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+   // implementation("androidx.datastore:datastore:1.0.0")
+
+
+
 
 
 
