@@ -24,7 +24,8 @@ import java.io.File
 class DownloadDemo : AppCompatActivity() {
     val imageURL =
 //        "http://ichef.bbci.co.uk/onesport/cps/480/cpsprodpb/11136/production/_95324996_defoe_rex.jpg"
-        "https://ichef.bbci.co.uk/onesport/cps/480/cpsprodpb/11136/production/_95324996_defoe_rex.jpg"
+//        "https://ichef.bbci.co.uk/onesport/cps/480/cpsprodpb/11136/production/_95324996_defoe_rex.jpg"
+        "http://africau.edu/images/default/sample.pdf"
     lateinit var tvCM: TextView
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
