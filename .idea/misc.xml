@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout-sw600dp/activity_multi_screen.xml" value="0.18046875" />
         <entry key="app/src/main/res/layout/activity_base_observable.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_data_store.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/activity_demo.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_dynamic_activity.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_event.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_image_picer.xml" value="0.240625" />
@@ -47,6 +48,7 @@
         <entry key="app/src/main/res/layout/rv_row.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/test_layout.xml" value="0.240625" />
         <entry key="app/src/main/res/xml/motion_loader.xml" value="0.240625" />
+        <entry key="app/src/main/res/xml/provider_paths.xml" value="0.240625" />
       </map>
     </option>
   </component>

@@ -4,6 +4,10 @@
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 <!--    <string name="banner_ad_unit_id">ca-app-pub-2357253533591651/6583202917</string>-->
 
+    <string name="success">Success</string>
+    <string name="cannot_use_storage">cannot_use_storage</string>
+    <string name="bad_download_url_provided">bad_download_url_provided</string>
+    <string name="error_downloading_file">error_downloading_file</string>
     <string name="fragment_1">Home</string>
     <string name="fragment_2">Network</string>
     <string name="fragment_3">Experience</string>
