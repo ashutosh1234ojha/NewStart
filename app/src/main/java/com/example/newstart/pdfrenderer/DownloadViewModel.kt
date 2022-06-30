@@ -17,7 +17,8 @@ import java.net.URL
 class DownloadViewModel : CoroutineViewModel() {
 
     private val downloadsDirectory = Environment.getExternalStoragePublicDirectory(
-            Environment.DIRECTORY_DOWNLOADS)
+        Environment.DIRECTORY_DOWNLOADS
+    )
 
     fun downloadFile(fileUrl: String): LiveData<FileDownloadEvent> {
         val result = MutableLiveData<FileDownloadEvent>()
@@ -61,8 +62,12 @@ class DownloadViewModel : CoroutineViewModel() {
     }
 
     private fun fileName(fileUrl: String): String =
-            fileUrl.substring(fileUrl.lastIndexOf("/") + 1, fileUrl.length)
+        fileUrl.substring(fileUrl.lastIndexOf("/") + 1, fileUrl.length)
 
-    private fun targetFile(fileName: String): File =
-            File(downloadsDirectory, fileName)
+
+    private fun targetFile(fileName: String): File {
+        return File(downloadsDirectory, fileName)
+    }
+
+
 }

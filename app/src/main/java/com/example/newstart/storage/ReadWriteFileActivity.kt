@@ -112,11 +112,12 @@ class ReadWriteFileActivity : AppCompatActivity() {
 
     fun writeToExternal() {
 //        val path: File = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)!!
-//        val path: File =
-//            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
 
-      val path=  Environment.getExternalStorageDirectory()
+        //It will create file inside document folder
+        val path: File = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
 
+//      val path=  Environment.getExternalStorageDirectory()
+//
         val file = File(path, "externalFileNext.txt")
 
 
@@ -129,6 +130,8 @@ class ReadWriteFileActivity : AppCompatActivity() {
         Toast.makeText(this, "written", Toast.LENGTH_SHORT).show()
 
     }
+
+
 
 
 }
