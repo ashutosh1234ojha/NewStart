@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment1">
         <action
             android:id="@+id/action_fragment1_to_detailsFragment"
-            app:destination="@id/testDialogFragment"
+            app:destination="@id/fragment2"
             />
     </fragment>
     <fragment

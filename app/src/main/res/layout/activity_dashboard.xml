@@ -4,97 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/header_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Heading"
-        android:padding="5dp"
-        android:textSize="22dp"
-        android:background="@color/browser_actions_bg_grey"
-        android:textColor="@color/black"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/tvMesh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="MAX"
 
-        app:layout_constraintTop_toBottomOf="@+id/header_title"
-        android:textSize="22dp"
-        android:layout_margin="50dp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvCM"
-        android:textColor="@color/white"
-        android:background="@color/black"
-        android:padding="5dp"
-        android:layout_marginTop="5dp"
-        />
-    <TextView
-        android:id="@+id/tvCM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="CM"
-        app:layout_constraintVertical_chainStyle="spread"
-        android:textColor="@color/white"
-        android:background="@color/black"
-        android:padding="5dp"
-
-        app:layout_constraintTop_toBottomOf="@+id/header_title"
-        android:textSize="22dp"
-        android:layout_margin="50dp"
-        app:layout_constraintStart_toEndOf="@+id/tvMesh"
-        android:layout_marginTop="5dp"
-        />
-    <TextView
-        android:id="@+id/tvGW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="GW"
-        app:layout_constraintVertical_chainStyle="spread"
-        app:layout_constraintStart_toEndOf="@+id/tvCM"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_title"
-        android:textSize="22dp"
-        android:layout_margin="50dp"
-        android:textColor="@color/white"
-        android:background="@color/black"
-        android:padding="5dp"
-        android:layout_marginTop="5dp"
-        />
 
     <fragment
         android:id="@+id/my_nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/activity_main_bottom_navigation_view"
-        app:layout_constraintTop_toBottomOf="@+id/header_title"
         app:navGraph="@navigation/bottom_navigation" />
-    <!--        app:navGraph="@navigation/app_navigation"-->
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/activity_main_bottom_navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:labelVisibilityMode="labeled"
-        app:itemIconTint="@drawable/tab_color"
-        app:itemTextColor="@drawable/tab_color"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-<!--    app:itemTextAppearanceActive="@style/BottomNavigationView.Active"-->
-<!--    app:itemTextAppearanceInactive="@style/BottomNavigationView"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

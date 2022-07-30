@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/layout-land/activity_multi_screen.xml" value="0.30364583333333334" />
         <entry key="app/src/main/res/layout-sw600dp/activity_multi_screen.xml" value="0.18046875" />
         <entry key="app/src/main/res/layout/activity_base_observable.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/layout/activity_data_store.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_demo.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_dynamic_activity.xml" value="0.240625" />
@@ -29,6 +30,7 @@
         <entry key="app/src/main/res/layout/activity_two_way_adapter.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activivty_movie_list.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/collapsing_toolnar.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/fragment1.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.240625" />

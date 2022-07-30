@@ -43,10 +43,21 @@ class DatastoreActivity : AppCompatActivity() {
         }
 
         btn.setOnClickListener {
-            lifecycleScope.launch {
-                incrementCounter()
+//            lifecycleScope.launch {
+//                incrementCounter()
+//
+//            }
+            val lds= ArrayList<String?>()
+            lds.add(null)
+            val p= Person(lds,"fadsf")
 
-            }
+
+
+
+
+
+
+
         }
     }
 
@@ -59,3 +70,7 @@ class DatastoreActivity : AppCompatActivity() {
         }
     }
 }
+
+class Person(
+    val list:ArrayList<String?>?, val name:String
+)
