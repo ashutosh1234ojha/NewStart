@@ -43,6 +43,7 @@
         <entry key="app/src/main/res/layout/item_pagging_loader.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_photo.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/item_sliding_list.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/layout_barrier.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/layout_data.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/layout_data_new.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/photo_item.xml" value="0.240625" />
