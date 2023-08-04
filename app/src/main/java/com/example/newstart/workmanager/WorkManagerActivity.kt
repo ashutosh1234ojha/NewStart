@@ -100,6 +100,9 @@ class WorkManagerActivity : AppCompatActivity() {
                             binding.downLoad.text = "running."
                             binding.progressBar.visibility = View.VISIBLE
                         }
+                        else->{
+
+                        }
                     }
                 }
 
@@ -132,6 +135,7 @@ class WorkManagerActivity : AppCompatActivity() {
                             binding.progressBar.visibility = View.GONE
 
                         }
+                        else->{}
                     }
                 }
 
