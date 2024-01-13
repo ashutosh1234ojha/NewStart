@@ -256,7 +256,7 @@ class ExternalStorageActivity : AppCompatActivity() {
             try {
                 contentResolver.insert(imageCollection, contentValue).also { uri ->
                     contentResolver.openOutputStream(uri!!).use { outputstream ->
-                        if (!bmp.compress(Bitmap.CompressFormat.JPEG, 95, outputstream)) {
+                        if (!bmp.compress(Bitmap.CompressFormat.JPEG, 95, outputstream!!)) {
                             throw IOException("Couldn't save bitmap")
                         }
                     }
