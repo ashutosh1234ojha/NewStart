@@ -36,6 +36,7 @@
         android:name=".cache.RestaurantApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -44,7 +45,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/banner_ad_unit_id_" />
         <activity
-            android:name=".syncWithServer.ListActivity"
+            android:name=".network.ApiCallActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
