@@ -31,14 +31,14 @@ class UserWorkManager(context: Context, userParameters: WorkerParameters) :
         var result: Result = Result.failure()
         val key = databaseReference.push().key
 
-        val keyDb=inputData.getLong("id",-1)
+        val keyDb = inputData.getLong("id", -1)
 //        databaseReference.child(key ?: "").child("fName").setValue(inputData.getString("fName"))
 //        databaseReference.child(key ?: "").child("lName").setValue(inputData.getString("lName"))
 //
 //        databaseReference.child(key ?: "").child("date").setValue(inputData.getString("date"))
 //            .addOnSuccessListener {
 //
-//                result = Result.success()
+//              c
 //            }
 
 //
@@ -51,21 +51,22 @@ class UserWorkManager(context: Context, userParameters: WorkerParameters) :
 //        )
 
 //        GlobalScope.launch {
-//            userDb.useDao().getUnSyncedUserList().collect {
-//                for (item in it) {
-//                    item.isSynced = 1
-//                    db.collection("users").add(
-//                        item
-//                    ).addOnSuccessListener { documentReference ->
-//                        userDb.useDao().addUser(item)
-//                        Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.id}")
-//                    }.addOnFailureListener { e ->
-//                        Log.w("TAG", "Error adding document", e)
-//                    }
+//            val list = userDb.useDao().getUnSyncedUserList()
+//            for (item in list) {
+//                item.isSynced = 1
+//                db.collection("users").add(
+//                    item
+//                ).addOnSuccessListener { documentReference ->
+//                    userDb.useDao().addUser(item)
+//                    Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.id}")
+//                    result = Result.success()
+//                }.addOnFailureListener { e ->
+//                    Log.w("TAG", "Error adding document", e)
+//                    result = Result.failure()
 //                }
 //            }
-//
-//
+
+
 //        }
 //        GlobalScope.launch {
 
@@ -86,10 +87,6 @@ class UserWorkManager(context: Context, userParameters: WorkerParameters) :
                     }
 //                }
 //            }
-
-
-
-
 
 
 //        db.collection("users")

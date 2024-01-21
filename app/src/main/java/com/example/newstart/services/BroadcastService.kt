@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.*
 import android.util.Log
 import android.widget.Toast
-import com.example.newstart.asds
+import com.example.newstart.KotlinPlayGround
 import java.lang.Thread.sleep
 
 /**
@@ -22,7 +22,7 @@ class BroadcastService : Service() {
 //        a = getMe()!!
     }
 
-    private fun getMe(): asds? {
+    private fun getMe(): KotlinPlayGround? {
         return null
     }
 

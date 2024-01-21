@@ -72,29 +72,30 @@ class ListActivity : AppCompatActivity() {
                 lName = lName.text.toString(),
                 date = SimpleDateFormat("dd/M/yyyy hh:mm:ss", Locale.CANADA).format(Date())
             )
-//            vm.handleSaveClick(userData)
-            val id=   userDao.addUser(userData)
+//            val id=   userDao.addUser(userData)
 
-            val data = Data.Builder()
-//            .putString("fName", userData.fName)
-//            .putString("lName", userData.lName)
-//            .putString("date", userData.date)
-                .putLong("id", id)
-                .build()
-
-            val constraints = Constraints.Builder()
-                .setRequiresCharging(true)
-                .build()
-
-            val workRequest: OneTimeWorkRequest =
-                OneTimeWorkRequest.Builder(UserWorkManager::class.java)
-                    .setInputData(data)
-                    .setConstraints(constraints)
-                    .build()
-
-
-            WorkManager.getInstance(application)
-                .enqueue(workRequest)
+            vm.handleSaveClick(userData)
+//
+//            val data = Data.Builder()
+////            .putString("fName", userData.fName)
+////            .putString("lName", userData.lName)
+////            .putString("date", userData.date)
+//                .putLong("id", id)
+//                .build()
+//
+//            val constraints = Constraints.Builder()
+//                .setRequiresCharging(true)
+//                .build()
+//
+//            val workRequest: OneTimeWorkRequest =
+//                OneTimeWorkRequest.Builder(UserWorkManager::class.java)
+//                    .setInputData(data)
+//                    .setConstraints(constraints)
+//                    .build()
+//
+//
+//            WorkManager.getInstance(application)
+//                .enqueue(workRequest)
 
 
         }

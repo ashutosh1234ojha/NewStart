@@ -16,7 +16,7 @@ interface UserDao {
     fun addUser(myInfo: UserData):Long
 
     @Query(" Select *  from userdata where isSynced==0")
-    fun getUnSyncedUserList(): Flow<List<UserData>>
+    fun getUnSyncedUserList():List<UserData>
 
     @Query(" Select *  from userdata where id=:rowId")
     fun getDataById( rowId:Long): UserData
